@@ -18,13 +18,15 @@ class Varnish extends Cache {
 		// @TODO need to do error checking against key
 		// @TODO add asynch to request
 		$client = new Client(
-			"http://{$_SERVER['SERVER_ADDR']}:{$_SERVER['SERVER_PORT']}/"
+			"http://{$_SERVER['SERVER_ADDR']}/"
 		);
+		
+		//echo $client->createRequest('PURGE', $key)->getUrl(); exit;
 		$response = $client->createRequest('PURGE', $key)->send();
 
 		// check response and manage exception in the event that
 		// request could not be fulfilled
-		var_export($response); exit;
+		// @PASS
 	}
 
 	public function write($key, $ttl = null, $value) {
