@@ -17,11 +17,14 @@ class Varnish extends Cache {
 		// spoofed anyways
 		// @TODO need to do error checking against key
 		// @TODO add asynch to request
-		$client = new Client(
-			"http://{$_SERVER['SERVER_ADDR']}/"
-		);
-		
-		//echo $client->createRequest('PURGE', $key)->getUrl(); exit;
+		$client = new Client("http://localhost/", [
+			'request.options' => [ 
+				'cookies' => [
+					'PHPSESSID' => session_id()
+				] 
+			]
+		]);
+
 		$response = $client->createRequest('PURGE', $key)->send();
 
 		// check response and manage exception in the event that
