@@ -1,0 +1,21 @@
+{
+    "name": "nmr/php-library",
+    "type": "library",
+    "description": "Private php library for nmr entities",
+    "keywords": ["php"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Christian Calloway",
+            "email": "christian.calloway@nomorerack.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-0" : {
+            "Twig_" : "./"
+        }
+    }
+}
